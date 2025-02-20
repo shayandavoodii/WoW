@@ -1,4 +1,4 @@
-name: Replace IPv4 with IPv6
+name: Process JSON File
 
 on:
   schedule:
@@ -12,13 +12,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Julia
+      - name: Set up Julia
         uses: julia-actions/setup-julia@v2
         with:
           version: '1.11' # Specify your desired Julia version
 
       - name: Install Julia packages
         run: julia -e 'using Pkg; Pkg.add(["HTTP", "JSON3"])'
+
+      - name: Debug - List files and directories
+        run: |
+          pwd
+          ls -al
 
       - name: Run Julia script to replace IPv4 with IPv6
         run: julia WoW.jl
@@ -27,18 +32,18 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const outputFilePath = "${{ github.workspace }}\modified_file.json" # MUST match output_file_path in Julia script
+            const outputFilePath = "${{ github.workspace }}/modified_file.json" # Adjust path if needed
             const fs = require('fs');
             if (fs.existsSync(outputFilePath)) {
               console.log('Modified JSON file exists. Committing changes.');
               await github.rest.repos.createOrUpdateFileContents({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                path: 'modified_file.json', # MUST match output_file_path in Julia script
+                path: 'modified_file.json', # Adjust path if needed
                 message: 'Automated update: Replace ipv4 with ipv6 in JSON',
                 content: fs.readFileSync(outputFilePath, 'base64'),
-                sha: context.payload.head_commit.tree_id // or use a specific branch's sha if needed
+                sha: context.payload.head_commit.tree_id
               });
-            } else {
-              console.log('Modified JSON file was not created, skipping commit.');
-            }
+                } else {
+                  console.log('Modified JSON file was not created, skipping commit.');
+                }
