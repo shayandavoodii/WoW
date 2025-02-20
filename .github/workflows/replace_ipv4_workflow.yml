@@ -5,6 +5,9 @@ on:
     - cron: '0 */4 * * *' # Runs every 4 hours
   workflow_dispatch: # Allows manual triggering from the Actions tab
 
+permissions: # Add this section to request write permissions
+  contents: write
+
 jobs:
   json_replace:
     runs-on: ubuntu-latest
@@ -32,5 +35,18 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            console.log('Hello from GitHub Script!');
-            console.log(process.env.GITHUB_WORKSPACE);
+            const outputFilePath = "${{ github.workspace }}/modified_file.json" # Using forward slash
+            const fs = require('fs');
+            if (fs.existsSync(outputFilePath)) {
+              console.log('Modified JSON file exists. Committing changes.');
+              await github.rest.repos.createOrUpdateFileContents({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                path: 'modified_file.json', # MUST match output_file_path in Julia script
+                message: 'Automated update: Replace ipv4 with ipv6 in JSON',
+                content: fs.readFileSync(outputFilePath, 'base64'),
+                sha: context.payload.head_commit.tree_id
+              });
+            } else {
+              console.log('Modified JSON file was not created, skipping commit.');
+            }
