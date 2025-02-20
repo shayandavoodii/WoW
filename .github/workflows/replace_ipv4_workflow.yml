@@ -35,18 +35,12 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const outputFilePath = process.env.GITHUB_WORKSPACE + '/modified_file.json'; // Explicit path construction
-            const fs = require('fs');
-            if (fs.existsSync(outputFilePath)) {
-              console.log('Modified JSON file exists. Committing changes.');
-              await github.rest.repos.createOrUpdateFileContents({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                path: 'modified_file.json', # MUST match output_file_path in Julia script
-                message: 'Automated update: Replace ipv4 with ipv6 in JSON',
-                content: fs.readFileSync(outputFilePath, 'base64'),
-                sha: context.payload.head_commit.tree_id
-              });
-            } else {
-              console.log('Modified JSON file was not created, skipping commit.');
-            }
+            console.log('Attempt 7: Minimal Commit Test');
+            await github.rest.repos.createOrUpdateFileContents({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              path: 'test_commit.txt', // A new test file
+              message: 'Test commit from GitHub Actions',
+              content: Buffer.from('This is a test commit.').toString('base64'),
+              sha: context.payload.head_commit.tree_id
+            });
