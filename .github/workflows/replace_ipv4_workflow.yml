@@ -35,7 +35,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const outputFilePath = "${{ github.workspace }}/modified_file.json" # Using forward slash
+            const outputFilePath = process.env.GITHUB_WORKSPACE + '/modified_file.json'; // Explicit path construction
             const fs = require('fs');
             if (fs.existsSync(outputFilePath)) {
               console.log('Modified JSON file exists. Committing changes.');
