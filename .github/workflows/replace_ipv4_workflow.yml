@@ -1,0 +1,44 @@
+name: Replace IPv4 with IPv6
+
+on:
+  schedule:
+    - cron: '0 */4 * * *' # Runs every 4 hours
+  workflow_dispatch: # Allows manual triggering from the Actions tab
+
+jobs:
+  json_replace:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Julia
+        uses: julia-actions/setup-julia@v2
+        with:
+          version: '1.11' # Specify your desired Julia version
+
+      - name: Install Julia packages
+        run: julia -e 'using Pkg; Pkg.add(["HTTP", "JSON3"])'
+
+      - name: Run Julia script to replace IPv4 with IPv6
+        run: julia WoW.jl
+
+      - name: Commit and push changes
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const outputFilePath = "${{ github.workspace }}\modified_file.json" # MUST match output_file_path in Julia script
+            const fs = require('fs');
+            if (fs.existsSync(outputFilePath)) {
+              console.log('Modified JSON file exists. Committing changes.');
+              await github.rest.repos.createOrUpdateFileContents({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                path: 'modified_file.json', # MUST match output_file_path in Julia script
+                message: 'Automated update: Replace ipv4 with ipv6 in JSON',
+                content: fs.readFileSync(outputFilePath, 'base64'),
+                sha: context.payload.head_commit.tree_id // or use a specific branch's sha if needed
+              });
+            } else {
+              console.log('Modified JSON file was not created, skipping commit.');
+            }
