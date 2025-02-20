@@ -32,7 +32,7 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const outputFilePath = "${{ github.workspace }}/modified_file.json" # Using forward slash
+            const outputFilePath = "${{ github.workspace }}\\modified_file.json" # Double-escaped backslash (less likely to be needed)
             const fs = require('fs');
             if (fs.existsSync(outputFilePath)) {
               console.log('Modified JSON file exists. Committing changes.');
