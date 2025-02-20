@@ -35,12 +35,30 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            console.log('Attempt 7: Minimal Commit Test');
-            await github.rest.repos.createOrUpdateFileContents({
+            console.log('Attempt 8: Fetch tree_id from API');
+            const outputFilePath = process.env.GITHUB_WORKSPACE + '/modified_file.json'; // Explicit path construction
+            const fs = require('fs');
+
+            // Fetch the commit SHA of the main branch
+            const commitData = await github.rest.git.getCommit({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              path: 'test_commit.txt', // A new test file
-              message: 'Test commit from GitHub Actions',
-              content: Buffer.from('This is a test commit.').toString('base64'),
-              sha: context.payload.head_commit.tree_id
+              commit_sha: context.payload.after || context.sha // Use 'after' from push event or current SHA for others
             });
+            const treeSha = commitData.data.tree.sha;
+            console.log(`Tree SHA: ${treeSha}`);
+
+
+            if (fs.existsSync(outputFilePath)) {
+              console.log('Modified JSON file exists. Committing changes.');
+              await github.rest.repos.createOrUpdateFileContents({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                path: 'modified_file.json',
+                message: 'Automated update: Replace ipv4 with ipv6 in JSON',
+                content: fs.readFileSync(outputFilePath, 'base64'),
+                sha: treeSha // Use fetched treeSha
+              });
+            } else {
+              console.log('Modified JSON file was not created, skipping commit.');
+            }
