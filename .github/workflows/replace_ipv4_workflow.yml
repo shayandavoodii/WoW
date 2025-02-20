@@ -32,18 +32,5 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const outputFilePath = "${{ github.workspace }}\\modified_file.json" # Double-escaped backslash (less likely to be needed)
-            const fs = require('fs');
-            if (fs.existsSync(outputFilePath)) {
-              console.log('Modified JSON file exists. Committing changes.');
-              await github.rest.repos.createOrUpdateFileContents({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                path: 'modified_file.json', # MUST match output_file_path in Julia script
-                message: 'Automated update: Replace ipv4 with ipv6 in JSON',
-                content: fs.readFileSync(outputFilePath, 'base64'),
-                sha: context.payload.head_commit.tree_id // or use a specific branch's sha if needed
-              });
-            } else {
-              console.log('Modified JSON file was not created, skipping commit.');
-            }
+            console.log('Hello from GitHub Script!');
+            console.log(process.env.GITHUB_WORKSPACE);
