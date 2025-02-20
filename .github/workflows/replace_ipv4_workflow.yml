@@ -26,7 +26,7 @@ jobs:
           ls -al
 
       - name: Run Julia script to replace IPv4 with IPv6
-        run: julia WoW.jl
+        run: julia ${{ github.workspace }}/WoW.jl
 
       - name: Commit and push changes
         uses: actions/github-script@v7
