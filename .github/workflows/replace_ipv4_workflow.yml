@@ -23,11 +23,6 @@ jobs:
       - name: Install Julia packages
         run: julia -e 'using Pkg; Pkg.add(["HTTP", "JSON3"])'
 
-      - name: Debug - List files and directories
-        run: |
-          pwd
-          ls -al
-
       - name: Run Julia script to replace IPv4 with IPv6
         run: julia ${{ github.workspace }}/WoW.jl
 
