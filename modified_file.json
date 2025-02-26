@@ -4,6 +4,8 @@
             "tag": "proxy",
             "default": "🟡Berlin",
             "outbounds": [
+                "auto",
+                "direct",
                 "⚪️Tehran",
                 "🟡Berlin"
             ],
@@ -16,7 +18,7 @@
                 "🟡Berlin"
             ],
             "type": "urltest",
-            "url": "https://www.gstatic.com/generate_204",
+            "url": "http://www.gstatic.com/generate_204",
             "tolerance": 50
         },
         {
@@ -27,10 +29,13 @@
     ],
     "log": {
         "timestamp": true,
-        "level": "warn"
+        "level": "error"
     },
     "route": {
-        "override_android_vpn": true,
+        "default_domain_resolver": {
+            "client_subnet": "1.1.1.1",
+            "server": "local-dns"
+        },
         "auto_detect_interface": true,
         "rules": [
             {
@@ -43,17 +48,15 @@
             },
             {
                 "clash_mode": "Direct",
-                "action": "resolve",
-                "strategy": "prefer_ipv6"
+                "strategy": "prefer_ipv6",
+                "outbound": "direct"
             },
             {
-                "override_port": 443,
                 "clash_mode": "Global",
-                "action": "route-options",
-                "override_address": "1.1.1.1"
+                "outbound": "proxy"
             },
             {
-                "action": "direct",
+                "outbound": "direct",
                 "rule_set": [
                     "geoip-private",
                     "geosite-private",
@@ -62,8 +65,7 @@
                 ]
             },
             {
-                "method": "default",
-                "action": "reject",
+                "outbound": "block",
                 "rule_set": "geosite-ads"
             }
         ],
@@ -108,24 +110,26 @@
     },
     "inbounds": [
         {
-            "tag": "dns-in",
-            "override_port": 53,
-            "listen": "0.0.0.0",
-            "listen_port": 6450,
-            "override_address": "1.1.1.1",
-            "type": "direct"
-        },
-        {
             "tag": "tun-in",
             "mtu": 9000,
             "auto_route": true,
             "stack": "mixed",
+            "platform": {
+                "http_proxy": {
+                    "server_port": 2080,
+                    "server": "127.0.0.1",
+                    "enabled": true
+                }
+            },
             "type": "tun",
-            "address": "172.18.0.1/28"
+            "address": [
+                "172.19.0.1/30",
+                "fdfe:dcba:9876::1/126"
+            ]
         },
         {
             "tag": "mixed-in",
-            "listen": "0.0.0.0",
+            "listen": "127.0.0.1",
             "listen_port": 2080,
             "type": "mixed"
         }
@@ -135,9 +139,9 @@
             "peers": [
                 {
                     "reserved": [
-                        30,
-                        115,
-                        248
+                        154,
+                        138,
+                        234
                     ],
                     "port": 8854,
                     "allowed_ips": [
@@ -155,7 +159,7 @@
             "mtu": 1280,
             "workers": 2,
             "type": "wireguard",
-            "private_key": "+KMEvmIoLcLtxaJOF+YtytjYr/tl0LvQbQxyra3iQ0c=",
+            "private_key": "gMc+2NZWyeOvQU4nGB9XcOqkV7CM3HrCgcRQCHr84GU=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8735:bb29:91bc:1c82:aa73/128"
@@ -165,9 +169,9 @@
             "peers": [
                 {
                     "reserved": [
-                        209,
-                        175,
-                        206
+                        190,
+                        49,
+                        75
                     ],
                     "port": 4233,
                     "allowed_ips": [
@@ -185,17 +189,21 @@
             "mtu": 1280,
             "workers": 2,
             "type": "wireguard",
-            "private_key": "yHWZKxsp6VzCqrrnwjfmwo5539F/VkJROfipMrGUM3M=",
+            "private_key": "QMqE1v7oYmM79YGKgil4SW2nPQfXTfEDmg8Hj1LBrlQ=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8735:bb29:91bc:1c82:aa73/128"
             ]
         }
     ],
+    "experimental": {
+        "cache_file": {
+            "enabled": true
+        }
+    },
     "dns": {
         "servers": [
             {
-                "server_port": 0,
                 "tag": "proxy-dns",
                 "detour": "proxy",
                 "server": "185.228.168.9",
@@ -203,7 +211,6 @@
                 "type": "tcp"
             },
             {
-                "server_port": 0,
                 "tag": "local-dns",
                 "detour": "direct",
                 "server": "8.8.4.4",
@@ -218,21 +225,23 @@
         "strategy": "prefer_ipv6",
         "rules": [
             {
-                "clash_mode": "Global",
-                "server": "proxy-dns",
-                "source_ip_cidr": "172.19.0.0/30"
-            },
-            {
-                "server": "proxy-dns",
-                "source_ip_cidr": "172.19.0.0/30"
+                "server": "direct-dns",
+                "rule_set": "geosite-ir"
             },
             {
                 "clash_mode": "Direct",
                 "server": "direct-dns"
             },
             {
-                "server": "direct-dns",
-                "rule_set": "geosite-ir"
+                "server": "proxy-dns",
+                "source_ip_cidr": [
+                    "172.19.0.1/30",
+                    "fdfe:dcba:9876::1/126"
+                ]
+            },
+            {
+                "clash_mode": "Global",
+                "server": "proxy-dns"
             }
         ],
         "final": "proxy-dns"
