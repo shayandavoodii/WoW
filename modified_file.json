@@ -139,9 +139,9 @@
             "peers": [
                 {
                     "reserved": [
-                        56,
-                        150,
-                        54
+                        27,
+                        24,
+                        56
                     ],
                     "port": 8854,
                     "allowed_ips": [
@@ -159,7 +159,7 @@
             "mtu": 1280,
             "workers": 2,
             "type": "wireguard",
-            "private_key": "IBXx0jOyPGWUS+WR7E6Id+VrMIOElaPyRK8Yo4tsdW4=",
+            "private_key": "mP8zUAvyM1vt7Fz/qdaD7R2hX6Y0d60bU+DBZYezlVI=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8735:bb29:91bc:1c82:aa73/128"
@@ -169,9 +169,9 @@
             "peers": [
                 {
                     "reserved": [
-                        59,
-                        71,
-                        47
+                        67,
+                        60,
+                        224
                     ],
                     "port": 4233,
                     "allowed_ips": [
@@ -189,7 +189,7 @@
             "mtu": 1280,
             "workers": 2,
             "type": "wireguard",
-            "private_key": "yJGM23gGBYvxpkQBuWL2WquBU/+QIg9dmkFm5x0Eo2Q=",
+            "private_key": "mLCFW0867XdvCNZsRSxNZRrZ/QprB4bO4mhoWh1XM0U=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8735:bb29:91bc:1c82:aa73/128"
