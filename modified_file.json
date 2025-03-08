@@ -18,11 +18,11 @@
                 "🟡Berlin"
             ],
             "type": "urltest",
-            "url": "http://www.gstatic.com/generate_204",
+            "url": "https://www.gstatic.com/generate_204",
             "tolerance": 50
         },
         {
-            "tag": "direct",
+            "tag": "Direct",
             "domain_strategy": "prefer_ipv6",
             "type": "direct"
         }
@@ -32,10 +32,7 @@
         "level": "error"
     },
     "route": {
-        "default_domain_resolver": {
-            "client_subnet": "1.1.1.1",
-            "server": "local-dns"
-        },
+        "default_domain_resolver": "direct-dns",
         "auto_detect_interface": true,
         "rules": [
             {
@@ -139,9 +136,9 @@
             "peers": [
                 {
                     "reserved": [
-                        245,
-                        108,
-                        60
+                        237,
+                        217,
+                        187
                     ],
                     "port": 8854,
                     "allowed_ips": [
@@ -159,7 +156,7 @@
             "mtu": 1280,
             "workers": 2,
             "type": "wireguard",
-            "private_key": "8N05vPG3CfInxbtnDTAMls4l6OhgzE1k3QI0K3Zkul8=",
+            "private_key": "8F4eM/dRFzsQWZjpZEeAVH3XVFgWaz2bMNH4zLItclg=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8735:bb29:91bc:1c82:aa73/128"
@@ -169,9 +166,9 @@
             "peers": [
                 {
                     "reserved": [
-                        35,
-                        170,
-                        183
+                        245,
+                        254,
+                        211
                     ],
                     "port": 4233,
                     "allowed_ips": [
@@ -189,7 +186,7 @@
             "mtu": 1280,
             "workers": 2,
             "type": "wireguard",
-            "private_key": "MJRoVmaaLpa50gkRMsDqe/Igc9+tDnqXonjJM5b3G2g=",
+            "private_key": "WDsH0x3cSLuJY70i6Gu4BXzIfLKq8prmukC/ZsupyVw=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8735:bb29:91bc:1c82:aa73/128"
