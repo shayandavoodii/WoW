@@ -71,36 +71,36 @@
         "final": "proxy",
         "rule_set": [
             {
-                "tag": "geosite-ads",
                 "format": "binary",
+                "tag": "geosite-ads",
                 "download_detour": "direct",
                 "type": "remote",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs"
             },
             {
-                "tag": "geosite-private",
                 "format": "binary",
+                "tag": "geosite-private",
                 "download_detour": "direct",
                 "type": "remote",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs"
             },
             {
-                "tag": "geosite-ir",
                 "format": "binary",
+                "tag": "geosite-ir",
                 "download_detour": "direct",
                 "type": "remote",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ir.srs"
             },
             {
-                "tag": "geoip-private",
                 "format": "binary",
+                "tag": "geoip-private",
                 "download_detour": "direct",
                 "type": "remote",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs"
             },
             {
-                "tag": "geoip-ir",
                 "format": "binary",
+                "tag": "geoip-ir",
                 "download_detour": "direct",
                 "type": "remote",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/ir.srs"
@@ -110,9 +110,8 @@
     "inbounds": [
         {
             "tag": "tun-in",
-            "mtu": 9000,
             "auto_route": true,
-            "stack": "mixed",
+            "mtu": 9000,
             "platform": {
                 "http_proxy": {
                     "server_port": 2080,
@@ -120,6 +119,7 @@
                     "enabled": true
                 }
             },
+            "stack": "mixed",
             "type": "tun",
             "endpoint_independent_nat": false,
             "address": [
@@ -136,60 +136,60 @@
     ],
     "endpoints": [
         {
-            "peers": [
-                {
-                    "reserved": [
-                        195,
-                        195,
-                        1
-                    ],
-                    "port": 8854,
-                    "allowed_ips": [
-                        "0.0.0.0/0",
-                        "::/0"
-                    ],
-                    "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "persistent_keepalive_interval": 30,
-                    "address": "188.114.96.214"
-                }
-            ],
+            "type": "wireguard",
             "name": "wg0",
             "tag": "⚪️Tehran",
             "detour": "direct",
             "mtu": 1280,
             "workers": 2,
-            "type": "wireguard",
-            "private_key": "KE32VzqCWXCLnXT6ereIG0lAJrc5DpsXqcVcqx/f8m8=",
+            "peers": [
+                {
+                    "reserved": [
+                        195,
+                        214,
+                        203
+                    ],
+                    "allowed_ips": [
+                        "0.0.0.0/0",
+                        "::/0"
+                    ],
+                    "port": 8854,
+                    "persistent_keepalive_interval": 30,
+                    "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+                    "address": "188.114.96.214"
+                }
+            ],
+            "private_key": "2M7ahmAeNJTE6MNHCcbX8b5TFWyDB+7ilBBTbhlgOkU=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8735:bb29:91bc:1c82:aa73/128"
             ]
         },
         {
-            "peers": [
-                {
-                    "reserved": [
-                        114,
-                        111,
-                        35
-                    ],
-                    "port": 4233,
-                    "allowed_ips": [
-                        "0.0.0.0/0",
-                        "::/0"
-                    ],
-                    "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "persistent_keepalive_interval": 30,
-                    "address": "188.114.99.22"
-                }
-            ],
+            "type": "wireguard",
             "name": "wg0",
             "tag": "🟡Berlin",
             "detour": "⚪️Tehran",
             "mtu": 1280,
             "workers": 2,
-            "type": "wireguard",
-            "private_key": "CEY1d4UzBZ1hc0Dwo+O/TdLIAXOJIRDks9e+fPuryF8=",
+            "peers": [
+                {
+                    "reserved": [
+                        83,
+                        127,
+                        126
+                    ],
+                    "allowed_ips": [
+                        "0.0.0.0/0",
+                        "::/0"
+                    ],
+                    "port": 4233,
+                    "persistent_keepalive_interval": 30,
+                    "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
+                    "address": "188.114.99.22"
+                }
+            ],
+            "private_key": "4CSUI1N7GV7byqu1aS/2mWlMSvfmCNk0NoRfpJhSFFM=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8735:bb29:91bc:1c82:aa73/128"
