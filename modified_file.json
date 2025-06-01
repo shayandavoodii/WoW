@@ -148,9 +148,9 @@
             "peers": [
                 {
                     "reserved": [
-                        119,
-                        44,
-                        209
+                        92,
+                        24,
+                        175
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
@@ -162,7 +162,7 @@
                     "address": "188.114.96.214"
                 }
             ],
-            "private_key": "2Ju+r0j3WgjeWKLt2GoeZemIUedmvJ0h/TnXB7XKu1s=",
+            "private_key": "SOkifZtpWKlvQvmUXZ3o3hzysgZcv3Y2RFDsumZKeGo=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
@@ -177,9 +177,9 @@
             "peers": [
                 {
                     "reserved": [
-                        118,
-                        50,
-                        183
+                        156,
+                        248,
+                        27
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
@@ -191,7 +191,7 @@
                     "address": "188.114.99.22"
                 }
             ],
-            "private_key": "oDcnCtMh4XhLp/WPgzpzuV9ZsVKzJLIdsTIjtfba7WU=",
+            "private_key": "ILEAvXEGjMnSLHt4am/kgN1xKYLAVRi0jWwBqe4vSnk=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
