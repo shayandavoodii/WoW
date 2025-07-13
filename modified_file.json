@@ -2,12 +2,12 @@
     "outbounds": [
         {
             "tag": "proxy",
-            "default": "🟢Baku",
+            "default": "🟡Berlin",
             "outbounds": [
                 "auto",
                 "direct",
                 "⚪️Tehran",
-                "🟢Baku"
+                "🟡Berlin"
             ],
             "type": "selector"
         },
@@ -15,7 +15,7 @@
             "tag": "auto",
             "outbounds": [
                 "⚪️Tehran",
-                "🟢Baku"
+                "🟡Berlin"
             ],
             "interval": "90s",
             "type": "urltest",
@@ -148,21 +148,21 @@
             "peers": [
                 {
                     "reserved": [
-                        137,
-                        64,
-                        185
+                        52,
+                        119,
+                        204
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 939,
+                    "port": 8854,
                     "persistent_keepalive_interval": 25,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "188.114.98.224"
+                    "address": "188.114.96.214"
                 }
             ],
-            "private_key": "aDw50XC0ypl5B5+sR6LVThKzVYDufktxjV2Mf1TcVmg=",
+            "private_key": "IBE2dI4m+P0Pc/zslLzEGry6jf5feEhbOA0GhRN2uE8=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
@@ -170,28 +170,28 @@
         },
         {
             "type": "wireguard",
-            "tag": "🟢Baku",
+            "tag": "🟡Berlin",
             "detour": "⚪️Tehran",
             "mtu": 1280,
             "workers": 2,
             "peers": [
                 {
                     "reserved": [
-                        84,
-                        171,
-                        10
+                        166,
+                        54,
+                        240
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 908,
+                    "port": 4233,
                     "persistent_keepalive_interval": 25,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "188.114.98.224"
+                    "address": "188.114.99.22"
                 }
             ],
-            "private_key": "8FSmaeqhktfMN1pGl38zde8kyYGowCEyr9W7Se12y2I=",
+            "private_key": "4CWDasxr7DrQpy40dd6QgjjCv+VsfGR9WMtROA4jTE8=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
