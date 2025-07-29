@@ -2,12 +2,11 @@
     "outbounds": [
         {
             "tag": "proxy",
-            "default": "🟡Berlin",
+            "default": "auto",
             "outbounds": [
                 "auto",
-                "direct",
                 "⚪️Tehran",
-                "🟡Berlin"
+                "🟢Somewhere"
             ],
             "type": "selector"
         },
@@ -15,11 +14,11 @@
             "tag": "auto",
             "outbounds": [
                 "⚪️Tehran",
-                "🟡Berlin"
+                "🟢Somewhere"
             ],
             "interval": "90s",
             "type": "urltest",
-            "url": "https://www.gstatic.com/generate_204",
+            "url": "http://www.gstatic.com/generate_204",
             "tolerance": 50
         },
         {
@@ -30,6 +29,10 @@
                 "strategy": "prefer_ipv4"
             },
             "type": "direct"
+        },
+        {
+            "tag": "block",
+            "type": "block"
         }
     ],
     "log": {
@@ -115,7 +118,7 @@
         {
             "tag": "tun-in",
             "auto_route": true,
-            "mtu": 9000,
+            "mtu": 1500,
             "platform": {
                 "http_proxy": {
                     "server_port": 2080,
@@ -148,21 +151,21 @@
             "peers": [
                 {
                     "reserved": [
-                        191,
-                        185,
-                        153
+                        215,
+                        162,
+                        10
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 8854,
-                    "persistent_keepalive_interval": 25,
+                    "port": 500,
+                    "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "188.114.96.214"
+                    "address": "188.114.98.85"
                 }
             ],
-            "private_key": "ECXe7YX/vyTHMtO4nnkaB1XL/TChhwgcrcHWrjh1XFg=",
+            "private_key": "4Oud4c6ktKslqs8gvBo8K0RtFL0ima2SwwIfPrk6AUM=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
@@ -170,28 +173,28 @@
         },
         {
             "type": "wireguard",
-            "tag": "🟡Berlin",
+            "tag": "🟢Somewhere",
             "detour": "⚪️Tehran",
             "mtu": 1280,
             "workers": 2,
             "peers": [
                 {
                     "reserved": [
-                        141,
-                        40,
-                        214
+                        39,
+                        167,
+                        152
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 4233,
-                    "persistent_keepalive_interval": 25,
+                    "port": 2371,
+                    "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "188.114.99.22"
+                    "address": "188.114.97.44"
                 }
             ],
-            "private_key": "wBnASH/4dGI5WbIQIvthOYAZs9FoTHWhv1pEi/Nqi0w=",
+            "private_key": "KI/YtMfeNTJWl76DcGCx8Qwz58tSxNTry5vBRw2ctXk=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
@@ -209,19 +212,17 @@
                 "tag": "proxy-dns",
                 "detour": "proxy",
                 "server": "185.228.168.9",
-                "domain_resolver": "local-dns",
                 "type": "tcp"
             },
             {
                 "tag": "local-dns",
                 "detour": "direct",
-                "server": "8.8.8.8",
-                "type": "tcp"
+                "type": "local"
             },
             {
                 "tag": "direct-dns",
-                "detour": "direct",
-                "type": "local"
+                "server": "1.1.1.1",
+                "type": "udp"
             }
         ],
         "independent_cache": true,
