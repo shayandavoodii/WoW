@@ -16,7 +16,7 @@
                 "⚪️Tehran",
                 "🟢Somewhere"
             ],
-            "interval": "3m",
+            "interval": "3m0s",
             "type": "urltest",
             "url": "https://www.gstatic.com/generate_204",
             "tolerance": 50
@@ -78,35 +78,30 @@
         "final": "proxy",
         "rule_set": [
             {
-                "format": "binary",
                 "tag": "geosite-ads",
                 "download_detour": "direct",
                 "type": "remote",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs"
             },
             {
-                "format": "binary",
                 "tag": "geosite-private",
                 "download_detour": "direct",
                 "type": "remote",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs"
             },
             {
-                "format": "binary",
                 "tag": "geosite-ir",
                 "download_detour": "direct",
                 "type": "remote",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ir.srs"
             },
             {
-                "format": "binary",
                 "tag": "geoip-private",
                 "download_detour": "direct",
                 "type": "remote",
                 "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/private.srs"
             },
             {
-                "format": "binary",
                 "tag": "geoip-ir",
                 "download_detour": "direct",
                 "type": "remote",
@@ -128,7 +123,6 @@
             },
             "stack": "mixed",
             "type": "tun",
-            "endpoint_independent_nat": false,
             "address": [
                 "172.19.0.1/30",
                 "fdfe:dcba:9876::1/126"
@@ -147,25 +141,25 @@
             "tag": "⚪️Tehran",
             "detour": "direct",
             "mtu": 1280,
-            "workers": 2,
+            "workers": 4,
             "peers": [
                 {
                     "reserved": [
-                        190,
-                        78,
-                        193
+                        51,
+                        61,
+                        107
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 4233,
+                    "port": 908,
                     "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "188.114.98.139"
+                    "address": "188.114.99.195"
                 }
             ],
-            "private_key": "oKWWWLthODbeOcVtUa0gvVv1I2Cai2Kkb2LKST1iwGc=",
+            "private_key": "gBM/HA7hb8ZDOnRbDc1916ULaik6QPbAg24XV1CoNnE=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
@@ -176,25 +170,25 @@
             "tag": "🟢Somewhere",
             "detour": "⚪️Tehran",
             "mtu": 1280,
-            "workers": 2,
+            "workers": 4,
             "peers": [
                 {
                     "reserved": [
-                        177,
-                        155,
-                        156
+                        108,
+                        251,
+                        112
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 7152,
+                    "port": 903,
                     "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "188.114.98.45"
+                    "address": "162.159.192.28"
                 }
             ],
-            "private_key": "ABhmniZ0wWsdvIQTo7nRbYjyvqSrnTmesK4vz9cBGGc=",
+            "private_key": "oLBrL55Ciy8v6x2K+LRaX9JVplAyExP/2zZCblsaQUo=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
@@ -221,7 +215,8 @@
             },
             {
                 "tag": "direct-dns",
-                "server": "178.22.122.100",
+                "server": "free.shekan.ir",
+                "domain_resolver": "local-dns",
                 "type": "https"
             }
         ],
