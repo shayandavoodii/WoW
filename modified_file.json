@@ -145,21 +145,21 @@
             "peers": [
                 {
                     "reserved": [
-                        51,
-                        61,
-                        107
+                        53,
+                        121,
+                        47
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 908,
+                    "port": 2371,
                     "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "188.114.99.195"
+                    "address": "188.114.99.138"
                 }
             ],
-            "private_key": "gBM/HA7hb8ZDOnRbDc1916ULaik6QPbAg24XV1CoNnE=",
+            "private_key": "WNWrAxIDT7QZbGtpGuDktnYaJNwuLC8/z2+2VHzjM1s=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
@@ -174,24 +174,24 @@
             "peers": [
                 {
                     "reserved": [
-                        108,
-                        251,
-                        112
+                        34,
+                        122,
+                        90
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 903,
+                    "port": 7281,
                     "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "162.159.192.28"
+                    "address": "188.114.99.157"
                 }
             ],
-            "private_key": "oLBrL55Ciy8v6x2K+LRaX9JVplAyExP/2zZCblsaQUo=",
+            "private_key": "ICBePHuF+Zl6cOP4HX/xsOCECTJMifpmHjApYoVEPmQ=",
             "address": [
-                "172.16.0.2/32",
-                "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
+                "172.16.0.3/32",
+                "2606:4700:110:8867:3f4a:906:1933:43c5/128"
             ]
         }
     ],
