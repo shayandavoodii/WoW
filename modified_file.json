@@ -145,21 +145,21 @@
             "peers": [
                 {
                     "reserved": [
-                        239,
-                        169,
-                        208
+                        247,
+                        63,
+                        28
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 1010,
+                    "port": 890,
                     "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "162.159.195.155"
+                    "address": "162.159.192.222"
                 }
             ],
-            "private_key": "KIpKPd3kfxzH66kLGwPtYQwMl9GbzC/8KRXklzUsHUE=",
+            "private_key": "WDgf8Ej+GGjNI+aZfRw4VHX+GN9pDtgHqNjWgAkInWw=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
@@ -174,21 +174,21 @@
             "peers": [
                 {
                     "reserved": [
-                        30,
-                        211,
-                        206
+                        214,
+                        212,
+                        149
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 5956,
+                    "port": 2371,
                     "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "162.159.192.112"
+                    "address": "8.34.70.59"
                 }
             ],
-            "private_key": "mGgb7OeymmHjlypkyaO04VAicHceXyYgKWZq4GcGa0M=",
+            "private_key": "ABHTOqYC3RMmMSNgQLFcZorRAeUj4R4uyvO0zPTE5lo=",
             "address": [
                 "172.16.0.3/32",
                 "2606:4700:110:8867:3f4a:906:1933:43c5/128"
