@@ -16,7 +16,8 @@
                 "⚪️Tehran",
                 "🟢Somewhere"
             ],
-            "interval": "3m0s",
+            "interval": "5m0s",
+            "interrupt_exist_connections": false,
             "type": "urltest",
             "url": "https://www.gstatic.com/generate_204",
             "tolerance": 50
@@ -145,21 +146,21 @@
             "peers": [
                 {
                     "reserved": [
-                        247,
-                        63,
-                        28
+                        57,
+                        185,
+                        34
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 890,
+                    "port": 2408,
                     "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "162.159.192.222"
+                    "address": "8.6.112.38"
                 }
             ],
-            "private_key": "WDgf8Ej+GGjNI+aZfRw4VHX+GN9pDtgHqNjWgAkInWw=",
+            "private_key": "SLjLgsg6LvjsOOK+YdOfv0hrmt54D51NTJ/DpTn7OFc=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
@@ -174,21 +175,21 @@
             "peers": [
                 {
                     "reserved": [
-                        214,
-                        212,
-                        149
+                        99,
+                        149,
+                        231
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 2371,
+                    "port": 1074,
                     "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "8.34.70.59"
+                    "address": "188.114.99.77"
                 }
             ],
-            "private_key": "ABHTOqYC3RMmMSNgQLFcZorRAeUj4R4uyvO0zPTE5lo=",
+            "private_key": "iBUQJLhYQ/+nlizdvV2WIDatyUKIQfriA/OeOyNt/EY=",
             "address": [
                 "172.16.0.3/32",
                 "2606:4700:110:8867:3f4a:906:1933:43c5/128"
@@ -205,8 +206,8 @@
             {
                 "tag": "proxy-dns",
                 "detour": "proxy",
-                "server": "1.1.1.1",
-                "type": "tls"
+                "server": "185.228.168.9",
+                "type": "tcp"
             },
             {
                 "tag": "local-dns",
@@ -215,9 +216,8 @@
             },
             {
                 "tag": "direct-dns",
-                "server": "free.shekan.ir",
-                "domain_resolver": "local-dns",
-                "type": "https"
+                "server": "8.8.8.8",
+                "type": "tcp"
             }
         ],
         "independent_cache": true,
