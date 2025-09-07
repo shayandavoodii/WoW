@@ -146,21 +146,21 @@
             "peers": [
                 {
                     "reserved": [
-                        61,
-                        87,
+                        51,
+                        48,
                         73
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 859,
+                    "port": 890,
                     "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "8.34.70.23"
+                    "address": "8.39.125.99"
                 }
             ],
-            "private_key": "kE5t8COZespmi+TkZmx/HiIpTxxsHJKo1Xa2z5GklkQ=",
+            "private_key": "YHb8QAsP5vqdV+kjcH94b0h9K8enJzLm0Ory9JRVcFM=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
@@ -175,21 +175,21 @@
             "peers": [
                 {
                     "reserved": [
-                        134,
-                        39,
-                        80
+                        121,
+                        248,
+                        234
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 946,
+                    "port": 1387,
                     "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "8.39.125.248"
+                    "address": "188.114.99.159"
                 }
             ],
-            "private_key": "eHUhTA2/511yCvvXAPum918UB5PZIoDrMisfRCAPznI=",
+            "private_key": "MKt7LJooxfjl+j3TkC+u0cDnJvEN54mqJ01R1ZIyan0=",
             "address": [
                 "172.16.0.3/32",
                 "2606:4700:110:8867:3f4a:906:1933:43c5/128"
