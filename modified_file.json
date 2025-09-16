@@ -146,21 +146,21 @@
             "peers": [
                 {
                     "reserved": [
-                        66,
-                        60,
-                        90
+                        10,
+                        112,
+                        75
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 946,
+                    "port": 8854,
                     "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "8.34.70.10"
+                    "address": "8.34.70.104"
                 }
             ],
-            "private_key": "QKibzj3Xqos4SFNTkZutvmTNK4hH89WmHZBu6xaUaFg=",
+            "private_key": "6GUkfbOD/AlvUNr8GwKHo8i+EpcetSmRdvAVQrUL22U=",
             "address": [
                 "172.16.0.2/32",
                 "2606:4700:110:8836:f1c9:4393:9b37:3814/128"
@@ -175,21 +175,21 @@
             "peers": [
                 {
                     "reserved": [
-                        236,
-                        139,
-                        107
+                        176,
+                        214,
+                        114
                     ],
                     "allowed_ips": [
                         "0.0.0.0/0",
                         "::/0"
                     ],
-                    "port": 2371,
+                    "port": 1387,
                     "persistent_keepalive_interval": 30,
                     "public_key": "bmXOC+F1FxEMF9dyiK2H5/1SUtzH0JuVo51h2wPfgyo=",
-                    "address": "8.6.112.184"
+                    "address": "8.39.125.9"
                 }
             ],
-            "private_key": "+N2Rqs/Y61Ys/9H68RsXfHJYBytj4YpBHcsT08W5fl4=",
+            "private_key": "OEL2WNzQQw+PSjgqJNx0ExtFjiljHxAsIP+w9vIjlGc=",
             "address": [
                 "172.16.0.3/32",
                 "2606:4700:110:8867:3f4a:906:1933:43c5/128"
